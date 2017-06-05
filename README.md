@@ -50,7 +50,7 @@ You can find a list of my `puppet-lint` plugins in the
 
 ### Author
 
-[Dean Wilson](http://www.unixdaemon.net)
+[Dean Wilson](https://www.unixdaemon.net)
 
 ### License
 
