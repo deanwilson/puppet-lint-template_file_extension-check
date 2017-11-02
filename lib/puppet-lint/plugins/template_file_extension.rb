@@ -18,24 +18,33 @@ PuppetLint.new_check(:template_file_extension) do
             template_function = matched[1]
             extension = template_extensions[template_function.to_sym]
 
+            # Collect all tokens until the closing ')'
+            template_param_tokens = []
             current_token = value_token.next_token
-
-            # iterate over all the code tokens until we hit the closing ')'
             until current_token.type == :RPAREN
+              template_param_tokens << current_token
               current_token = current_token.next_code_token
+            end
 
-              if current_token.type == :SSTRING && !current_token.value.end_with?(extension)
+            # EPP functions only accept one filename in the first position:
+            tokens_to_check = if template_function == 'epp'
+                                template_param_tokens[0..1]
+                              else
+                                template_param_tokens
+                              end
 
-                warning = "all #{template_function} file names should end with #{extension}"
+            bad_tokens = tokens_to_check.select { |t| t.type == :SSTRING && !t.value.end_with?(extension) }
 
-                notify :warning, {
-                  message:     warning,
-                  line:        value_token.line,
-                  column:      value_token.column,
-                  param_token: content_token,
-                  value_token: value_token,
-                }
-              end
+            if bad_tokens.size > 0
+              warning = "all #{template_function} file names should end with #{extension}"
+
+              notify :warning, {
+                message:     warning,
+                line:        value_token.line,
+                column:      value_token.column,
+                param_token: content_token,
+                value_token: value_token,
+              }
             end
           end
         end
