@@ -38,6 +38,24 @@ describe 'template_file_extension' do
     end
   end
 
+  context 'epp function with one valid file name and parameter hash' do
+    let(:code) do
+      <<-EOS
+        class valid_epp_template_filename {
+          file { '/tmp/templated':
+            content => epp('mymodule/single_file.epp', {
+              'foo' => 'bar',
+            }),
+          }
+        }
+      EOS
+    end
+
+    it 'should not detect any problems' do
+      expect(problems).to have(0).problems
+    end
+  end
+
 
   ##########################
   # Invalid examples
