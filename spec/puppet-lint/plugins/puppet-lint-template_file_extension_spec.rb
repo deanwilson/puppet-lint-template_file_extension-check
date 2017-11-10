@@ -38,6 +38,21 @@ describe 'template_file_extension' do
     end
   end
 
+  context 'epp function with one valid file name and parameters' do
+    let(:code) do
+      <<-EOS
+        class valid_epp_template_filename {
+          file { '/tmp/templated':
+            content => epp('mymodule/single_file.epp', {'key' => 'val'}),
+          }
+        }
+      EOS
+    end
+
+    it 'should not detect any problems' do
+      expect(problems).to have(0).problems
+    end
+  end
 
   ##########################
   # Invalid examples
@@ -72,7 +87,7 @@ describe 'template_file_extension' do
       <<-EOS
         class epp_multi_templated_file {
           file { '/tmp/templated':
-            content => epp('mymodule/first_file.epp', 'mymodule/second_file.conf'),
+            content => epp('mymodule/first_file', {'key' => 'val'}),
           }
         }
       EOS
