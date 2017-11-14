@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name        = 'puppet-lint-template_file_extension-check'
-  spec.version     = '0.1.0'
+  spec.version     = '0.1.1'
   spec.homepage    = 'https://github.com/deanwilson/puppet-lint-template_file_extension-check'
   spec.license     = 'MIT'
   spec.author      = 'Dean Wilson'
@@ -25,4 +25,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rubocop', '~> 0.47.1'
   spec.add_development_dependency 'rake', '~> 11.2.0'
   spec.add_development_dependency 'rspec-json_expectations', '~> 1.4'
+  spec.add_development_dependency 'simplecov', '~> 0.15.0'
 end

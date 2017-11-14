@@ -21,7 +21,7 @@ PuppetLint.new_check(:template_file_extension) do
             current_token = value_token.next_token
 
             # iterate over all the code tokens until we hit the closing ')'
-            until current_token.type == :RPAREN
+            until current_token.type == :RPAREN || current_token.type == :LBRACE
               current_token = current_token.next_code_token
 
               if current_token.type == :SSTRING && !current_token.value.end_with?(extension)
