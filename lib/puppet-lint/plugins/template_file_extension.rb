@@ -19,6 +19,7 @@ PuppetLint.new_check(:template_file_extension) do
             extension = template_extensions[template_function.to_sym]
 
             current_token = value_token.next_token
+            current_token = current_token.next_token while current_token.type == :WHITESPACE
 
             # iterate over all the code tokens until we hit the closing ')'
             until current_token.type == :RPAREN || current_token.type == :LBRACE

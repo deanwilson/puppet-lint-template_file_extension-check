@@ -54,6 +54,22 @@ describe 'template_file_extension' do
     end
   end
 
+  context 'space between template and opening paren' do
+      let(:code) do
+        <<-EOS
+          class space_between_template_and_opening_paren {
+            file { '/tmp/templated':
+              content => template ('mymodule/a_file.erb'),
+            }
+          }
+        EOS
+      end
+
+      it 'should not detect any problems' do
+        expect(problems).to have(0).problems
+      end
+  end
+
   ##########################
   # Invalid examples
   ##########################
@@ -101,5 +117,26 @@ describe 'template_file_extension' do
       expect(problems).to contain_warning(epp_msg).on_line(3).in_column(24)
     end
   end
+
+  context 'space between template and opening paren and no extension' do
+      let(:code) do
+        <<-EOS
+          class space_between_template_and_opening_paren {
+            file { '/tmp/templated':
+              content => template ('mymodule/a_file'),
+            }
+          }
+        EOS
+      end
+
+      it 'should detect a single problem' do
+        expect(problems).to have(1).problem
+      end
+
+      it 'should create a warning' do
+        expect(problems).to contain_warning(template_msg).on_line(3).in_column(26)
+      end
+  end
+
 
 end
