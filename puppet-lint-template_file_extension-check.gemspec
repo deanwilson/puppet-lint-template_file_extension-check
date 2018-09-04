@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name        = 'puppet-lint-template_file_extension-check'
-  spec.version     = '0.1.1'
+  spec.version     = '0.1.2'
   spec.homepage    = 'https://github.com/deanwilson/puppet-lint-template_file_extension-check'
   spec.license     = 'MIT'
   spec.author      = 'Dean Wilson'
