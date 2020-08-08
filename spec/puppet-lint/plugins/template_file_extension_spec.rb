@@ -72,9 +72,8 @@ describe 'template_file_extension' do
   # Invalid examples
   ##########################
 
-  let(:template_msg) { 'all template file names should end with .erb' }
-
   context 'when the template function is called with a single invalid file name' do
+    let(:template_msg) { 'all template file names should end with .erb' }
     let(:code) do
       <<-TEST_CLASS
         class multi_templated_file {
@@ -94,9 +93,9 @@ describe 'template_file_extension' do
     end
   end
 
-  let(:epp_msg) { 'all epp file names should end with .epp' }
-
   context 'when the epp function is called with a single invalid file name' do
+    let(:epp_msg) { 'all epp file names should end with .epp' }
+
     let(:code) do
       <<-TEST_CLASS
         class epp_multi_templated_file {
@@ -117,6 +116,8 @@ describe 'template_file_extension' do
   end
 
   context 'when there is a space between the template function and opening paren, and no extension is provided' do
+    let(:template_msg) { 'all template file names should end with .erb' }
+
     let(:code) do
       <<-TEST_CLASS
         class space_between_template_and_opening_paren {
