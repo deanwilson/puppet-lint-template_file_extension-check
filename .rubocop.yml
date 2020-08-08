@@ -1,3 +1,6 @@
+require:
+  - rubocop-rspec
+
 AllCops:
   NewCops: enable
 
@@ -18,3 +21,6 @@ Metrics/AbcSize:
 
 Layout/HashAlignment:
   EnforcedColonStyle: table
+
+RSpec/DescribeClass:
+  Enabled: false
