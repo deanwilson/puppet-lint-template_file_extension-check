@@ -4,7 +4,7 @@ describe 'template_file_extension' do
   ##########################
   # Valid examples
   ##########################
-  context 'template function with one valid file name' do
+  context 'when the template function is called with one valid file name' do
     let(:code) do
       <<-TEST_CLASS
         class valid_template_filename {
@@ -15,12 +15,12 @@ describe 'template_file_extension' do
       TEST_CLASS
     end
 
-    it 'should not detect any problems' do
+    it 'does not detect any problems' do
       expect(problems).to have(0).problems
     end
   end
 
-  context 'epp function with one valid file name' do
+  context 'when the epp function is called with one valid file name' do
     let(:code) do
       <<-TEST_CLASS
         class valid_epp_template_filename {
@@ -31,12 +31,12 @@ describe 'template_file_extension' do
       TEST_CLASS
     end
 
-    it 'should not detect any problems' do
+    it 'does not detect any problems' do
       expect(problems).to have(0).problems
     end
   end
 
-  context 'epp function with one valid file name and parameters' do
+  context 'when the epp function is called with one valid file name and parameters' do
     let(:code) do
       <<-TEST_CLASS
         class valid_epp_template_filename {
@@ -47,12 +47,12 @@ describe 'template_file_extension' do
       TEST_CLASS
     end
 
-    it 'should not detect any problems' do
+    it 'does not detect any problems' do
       expect(problems).to have(0).problems
     end
   end
 
-  context 'space between template and opening paren' do
+  context 'when a space it present between the template function and opening paren' do
     let(:code) do
       <<-TEST_CLASS
         class space_between_template_and_opening_paren {
@@ -63,7 +63,7 @@ describe 'template_file_extension' do
       TEST_CLASS
     end
 
-    it 'should not detect any problems' do
+    it 'does not detect any problems' do
       expect(problems).to have(0).problems
     end
   end
@@ -72,9 +72,8 @@ describe 'template_file_extension' do
   # Invalid examples
   ##########################
 
-  let(:template_msg) { 'all template file names should end with .erb' }
-
-  context 'template function with single invalid file name' do
+  context 'when the template function is called with a single invalid file name' do
+    let(:template_msg) { 'all template file names should end with .erb' }
     let(:code) do
       <<-TEST_CLASS
         class multi_templated_file {
@@ -85,18 +84,18 @@ describe 'template_file_extension' do
       TEST_CLASS
     end
 
-    it 'should detect a single problem' do
+    it 'detects a single problem' do
       expect(problems).to have(1).problem
     end
 
-    it 'should create a warning' do
+    it 'creates a warning' do
       expect(problems).to contain_warning(template_msg).on_line(3).in_column(24)
     end
   end
 
-  let(:epp_msg) { 'all epp file names should end with .epp' }
+  context 'when the epp function is called with a single invalid file name' do
+    let(:epp_msg) { 'all epp file names should end with .epp' }
 
-  context 'epp function with single invalid file name' do
     let(:code) do
       <<-TEST_CLASS
         class epp_multi_templated_file {
@@ -107,16 +106,18 @@ describe 'template_file_extension' do
       TEST_CLASS
     end
 
-    it 'should detect a single problem' do
+    it 'detects a single problem' do
       expect(problems).to have(1).problem
     end
 
-    it 'should create a warning' do
+    it 'creates a warning' do
       expect(problems).to contain_warning(epp_msg).on_line(3).in_column(24)
     end
   end
 
-  context 'space between template and opening paren and no extension' do
+  context 'when there is a space between the template function and opening paren, and no extension is provided' do
+    let(:template_msg) { 'all template file names should end with .erb' }
+
     let(:code) do
       <<-TEST_CLASS
         class space_between_template_and_opening_paren {
@@ -127,11 +128,11 @@ describe 'template_file_extension' do
       TEST_CLASS
     end
 
-    it 'should detect a single problem' do
+    it 'detects a single problem' do
       expect(problems).to have(1).problem
     end
 
-    it 'should create a warning' do
+    it 'creates a warning' do
       expect(problems).to contain_warning(template_msg).on_line(3).in_column(24)
     end
   end
