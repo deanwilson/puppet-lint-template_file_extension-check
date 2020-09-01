@@ -4,3 +4,4 @@
 pkg/
 .ruby-*
 puppet-lint-*.gem
+coverage
