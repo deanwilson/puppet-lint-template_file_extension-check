@@ -4,6 +4,22 @@ describe 'template_file_extension' do
   ##########################
   # Valid examples
   ##########################
+  context 'when the manifest has no file resources' do
+    let(:code) do
+      <<-TEST_CLASS
+        class no_file_resource {
+          host { 'syslog':
+            ip => '10.10.10.10',
+          }
+        }
+      TEST_CLASS
+    end
+
+    it 'does not detect any problems' do
+      expect(problems).to have(0).problems
+    end
+  end
+
   context 'when the template function is called with one valid file name' do
     let(:code) do
       <<-TEST_CLASS
