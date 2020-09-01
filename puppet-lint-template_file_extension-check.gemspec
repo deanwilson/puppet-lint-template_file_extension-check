@@ -18,6 +18,8 @@ Gem::Specification.new do |spec|
     end with the string '.erb' or '.epp' respectively
   END_OF_DESCRIPTION
 
+  spec.required_ruby_version = '>= 2.5.0'
+
   spec.add_dependency             'puppet-lint', '>= 1.1', '< 3.0'
 
   spec.add_development_dependency 'rake', '~> 13.0.0'
