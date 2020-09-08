@@ -20,6 +20,23 @@ describe 'template_file_extension' do
     end
   end
 
+  context 'when a non-template function is called' do
+    let(:code) do
+      <<-TEST_CLASS
+        class random_function {
+          file { '/tmp/templated':
+            content => random_name('mymodule/single_file.erb'),
+          }
+        }
+      TEST_CLASS
+    end
+
+    it 'does not detect any problems' do
+      expect(problems).to have(0).problems
+    end
+  end
+
+
   context 'when the template function is called with one valid file name' do
     let(:code) do
       <<-TEST_CLASS
