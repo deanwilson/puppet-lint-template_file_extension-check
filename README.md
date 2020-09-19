@@ -5,6 +5,8 @@ functions end with the string '.erb' or '.epp' respectively
 
 [![Build Status](https://travis-ci.org/deanwilson/puppet-lint-template_file_extension-check.svg?branch=master)](https://travis-ci.org/deanwilson/puppet-lint-template_file_extension-check)
 
+[![Actions Status](https://github.com/deanwilson/puppet-lint-template_file_extension-check/workflows/Ruby/badge.svg)](https://github.com/deanwilson/puppet-lint-template_file_extension-check/actions)
+[![Actions Status](https://github.com/deanwilson/puppet-lint-template_file_extension-check/workflows/Rubocop%20linter/badge.svg)](https://github.com/deanwilson/puppet-lint-template_file_extension-check/actions)
 
 This plugin is an extension of our local style guide and may not suit
 your own code base. This sample would trigger the `puppet-lint` warning:
