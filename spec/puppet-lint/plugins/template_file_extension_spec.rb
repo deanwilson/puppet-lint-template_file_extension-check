@@ -36,7 +36,6 @@ describe 'template_file_extension' do
     end
   end
 
-
   context 'when the template function is called with one valid file name' do
     let(:code) do
       <<-TEST_CLASS
