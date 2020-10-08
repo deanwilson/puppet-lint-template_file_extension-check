@@ -3,7 +3,7 @@
 Extends puppet-lint to ensure all file names used in template and epp
 functions end with the string '.erb' or '.epp' respectively
 
-[![Build Status](https://travis-ci.org/deanwilson/puppet-lint-template_file_extension-check.svg?branch=master)](https://travis-ci.org/deanwilson/puppet-lint-template_file_extension-check)
+[![Build Status](https://travis-ci.org/deanwilson/puppet-lint-template_file_extension-check.svg?branch=main)](https://travis-ci.org/deanwilson/puppet-lint-template_file_extension-check)
 
 [![Actions Status](https://github.com/deanwilson/puppet-lint-template_file_extension-check/workflows/Ruby/badge.svg)](https://github.com/deanwilson/puppet-lint-template_file_extension-check/actions)
 [![Actions Status](https://github.com/deanwilson/puppet-lint-template_file_extension-check/workflows/Rubocop%20linter/badge.svg)](https://github.com/deanwilson/puppet-lint-template_file_extension-check/actions)
