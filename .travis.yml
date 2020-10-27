@@ -1,8 +1,0 @@
----
-language: ruby
-sudo: false
-rvm:
-  - 2.5.0
-script: "bundle exec rake spec SPEC_OPTS='--format documentation'"
-notifications:
-  email: dean.wilson@gmail.com
