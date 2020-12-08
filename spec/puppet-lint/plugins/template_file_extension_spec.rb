@@ -168,4 +168,32 @@ describe 'template_file_extension' do
       expect(problems).to contain_warning(template_msg).on_line(3).in_column(24)
     end
   end
+
+  ##
+  # Reported bugs
+  ##
+
+  ## https://github.com/deanwilson/puppet-lint-template_file_extension-check/issues/48
+  context 'when the paramater type is DQPOST not SSTRING and no extension is provided (issue #48)' do
+    let(:template_msg) { 'all template file names should end with .erb' }
+
+    let(:code) do
+      <<-TEST_CLASS
+        class space_between_template_and_opening_paren {
+          file { "/etc/${package_name}.conf":
+            ensure  => file,
+            content => template("allknowingdns/${package_name}.conf"),
+          }
+        }
+      TEST_CLASS
+    end
+
+    it 'detects a single problem' do
+      expect(problems).to have(1).problem
+    end
+
+    it 'creates a warning' do
+      expect(problems).to contain_warning(template_msg).on_line(4).in_column(24)
+    end
+  end
 end
