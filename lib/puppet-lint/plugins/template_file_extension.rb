@@ -5,6 +5,9 @@ PuppetLint.new_check(:template_file_extension) do
       template: '.erb',
     }
 
+    # the types a filename may be in a `template()` call
+    name_types = [:DQPOST, :SSTRING]
+
     resource_indexes.each do |resource|
       next unless resource[:type].value == 'file'
 
@@ -24,8 +27,7 @@ PuppetLint.new_check(:template_file_extension) do
           until current_token.type == :RPAREN || current_token.type == :LBRACE
             current_token = current_token.next_code_token
 
-            if current_token.type == :SSTRING && !current_token.value.end_with?(extension)
-
+            if (name_types.include? current_token.type) && !current_token.value.end_with?(extension)
               warning = "all #{template_function} file names should end with #{extension}"
 
               notify :warning, {
