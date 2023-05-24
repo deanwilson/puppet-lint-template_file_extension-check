@@ -6,7 +6,7 @@ PuppetLint.new_check(:template_file_extension) do
     }
 
     # the types a filename may be in a `template()` call
-    name_types = [:DQPOST, :SSTRING]
+    name_types = %i[DQPOST SSTRING]
 
     resource_indexes.each do |resource|
       next unless resource[:type].value == 'file'

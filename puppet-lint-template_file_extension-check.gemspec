@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
     end with the string '.erb' or '.epp' respectively
   END_OF_DESCRIPTION
 
-  spec.required_ruby_version = '>= 2.5.0'
+  spec.required_ruby_version = '>= 2.7.0'
 
   spec.add_dependency             'puppet-lint', '>= 1.1', '< 4.0'
 
@@ -27,7 +27,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec-collection_matchers', '~> 1.0'
   spec.add_development_dependency 'rspec-its', '~> 1.0'
   spec.add_development_dependency 'rspec-json_expectations', '~> 2.2'
-  spec.add_development_dependency 'rubocop', '~> 0.93.0'
-  spec.add_development_dependency 'rubocop-rspec', '~> 1.44.1'
+  spec.add_development_dependency 'rubocop', '~> 1.50.0'
+  spec.add_development_dependency 'rubocop-rspec', '~> 2.22.0'
+  spec.add_development_dependency 'rubocop-rake'
   spec.add_development_dependency 'simplecov', '~> 0.22.0'
 end
