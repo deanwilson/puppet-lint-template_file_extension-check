@@ -1,5 +1,6 @@
 require:
   - rubocop-rspec
+  - rubocop-rake
 
 AllCops:
   NewCops: enable
@@ -11,14 +12,13 @@ Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: 'comma'
 
 Metrics/MethodLength:
-  Max: 25
+  Max: 35
 
 Metrics/AbcSize:
   Max: 30
 
 Metrics/BlockLength:
   Max: 35
-  IgnoredMethods: [ 'describe' ]
 
 Layout/HashAlignment:
   EnforcedColonStyle: table
