@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec-collection_matchers', '~> 1.0'
   spec.add_development_dependency 'rspec-its', '~> 1.0'
   spec.add_development_dependency 'rspec-json_expectations', '~> 2.2'
-  spec.add_development_dependency 'rubocop', '~> 1.56.0'
+  spec.add_development_dependency 'rubocop', '~> 1.57.1'
   spec.add_development_dependency 'rubocop-rspec', '~> 2.24.0'
   spec.add_development_dependency 'rubocop-rake'
   spec.add_development_dependency 'simplecov', '~> 0.22.0'
