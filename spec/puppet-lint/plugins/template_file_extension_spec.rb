@@ -16,7 +16,7 @@ describe 'template_file_extension' do
     end
 
     it 'does not detect any problems' do
-      expect(problems).to have(0).problems
+      expect(problems.size).to eq(0)
     end
   end
 
@@ -32,7 +32,7 @@ describe 'template_file_extension' do
     end
 
     it 'does not detect any problems' do
-      expect(problems).to have(0).problems
+      expect(problems.size).to eq(0)
     end
   end
 
@@ -48,7 +48,7 @@ describe 'template_file_extension' do
     end
 
     it 'does not detect any problems' do
-      expect(problems).to have(0).problems
+      expect(problems.size).to eq(0)
     end
   end
 
@@ -64,7 +64,7 @@ describe 'template_file_extension' do
     end
 
     it 'does not detect any problems' do
-      expect(problems).to have(0).problems
+      expect(problems.size).to eq(0)
     end
   end
 
@@ -80,7 +80,7 @@ describe 'template_file_extension' do
     end
 
     it 'does not detect any problems' do
-      expect(problems).to have(0).problems
+      expect(problems.size).to eq(0)
     end
   end
 
@@ -96,7 +96,7 @@ describe 'template_file_extension' do
     end
 
     it 'does not detect any problems' do
-      expect(problems).to have(0).problems
+      expect(problems.size).to eq(0)
     end
   end
 
@@ -117,7 +117,7 @@ describe 'template_file_extension' do
     end
 
     it 'detects a single problem' do
-      expect(problems).to have(1).problem
+      expect(problems.size).to eq(1)
     end
 
     it 'creates a warning' do
@@ -139,7 +139,7 @@ describe 'template_file_extension' do
     end
 
     it 'detects a single problem' do
-      expect(problems).to have(1).problem
+      expect(problems.size).to eq(1)
     end
 
     it 'creates a warning' do
@@ -161,7 +161,7 @@ describe 'template_file_extension' do
     end
 
     it 'detects a single problem' do
-      expect(problems).to have(1).problem
+      expect(problems.size).to eq(1)
     end
 
     it 'creates a warning' do
@@ -189,7 +189,7 @@ describe 'template_file_extension' do
     end
 
     it 'detects a single problem' do
-      expect(problems).to have(1).problem
+      expect(problems.size).to eq(1)
     end
 
     it 'creates a warning' do
