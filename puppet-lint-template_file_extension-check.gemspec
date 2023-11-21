@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency 'rake', '~> 13.0.0'
   spec.add_development_dependency 'rspec', '~> 3.12.0'
-  spec.add_development_dependency 'rspec-collection_matchers', '~> 1.0'
+  spec.add_development_dependency 'rspec-collection_matchers', '~> 1.2'
   spec.add_development_dependency 'rspec-its', '~> 1.0'
   spec.add_development_dependency 'rspec-json_expectations', '~> 2.2'
   spec.add_development_dependency 'rubocop', '~> 1.56.0'
