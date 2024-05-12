@@ -6,11 +6,11 @@ jobs:
   build:
     name: "Run Rspec Tests"
     env:
-      PUPPET_GEM_VERSION: "~> 7.24.0"
+      PUPPET_GEM_VERSION: "~> 8.6.0"
     strategy:
       fail-fast: false
       matrix:
-        ruby: [2.7]
+        ruby: [3.2]
     runs-on: ubuntu-22.04
 
     steps:
